@@ -3,7 +3,7 @@ services:
   web:
     build: 
       context: .
-      dockerfile: Dockerfile.python  # Указывает использовать Dockerfile.python для сборки сервиса web
+      dockerfile: Dockerfile.python
     restart: always
     networks:
       backend:
@@ -13,10 +13,8 @@ services:
       - MYSQL_USER=app
       - MYSQL_PASSWORD=QwErTy1234
       - MYSQL_DATABASE=virtd
-      - DB_HOST=db  # Добавляем информацию о хосте базы данных в переменные среды
-      - DB_USER=app  # Указываем пользователя базы данных
-      - DB_PASSWORD=QwErTy1234  # Указываем пароль для подключения к базе данных
-      - DB_NAME=virtd  # Указываем название базы данных
+    depends_on:
+      - db  # Указываем зависимость от сервиса базы данных
   db:
     image: mysql:8
     networks:
