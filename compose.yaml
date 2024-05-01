@@ -10,14 +10,16 @@ services:
         ipv4_address: 172.20.0.5
     environment:
       - MYSQL_HOST=db
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=database
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=QwErTy1234
+      - MYSQL_DATABASE=virtd
   db:
     image: mysql:8
     networks:
       backend:
         ipv4_address: 172.20.0.10
+    environment:
+      MYSQL_ROOT_PASSWORD: YtReWq4321
 
 include:
   - proxy.yaml
