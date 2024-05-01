@@ -1,0 +1,18 @@
+# Используем базовый образ Python
+FROM python:3.8
+
+# Устанавливаем рабочую директорию в контейнере
+WORKDIR /app
+
+# Копируем файлы requirements.txt и main.py в рабочую директорию
+COPY requirements.txt .
+COPY main.py .
+
+# Устанавливаем зависимости из requirements.txt
+RUN pip install -r requirements.txt
+
+# Открываем порт 5000 для доступа к приложению
+EXPOSE 5000
+
+# Запускаем Flask-приложение
+CMD ["python", "main.py"]
