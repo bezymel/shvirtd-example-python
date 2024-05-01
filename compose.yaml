@@ -13,6 +13,10 @@ services:
       - MYSQL_USER=app
       - MYSQL_PASSWORD=QwErTy1234
       - MYSQL_DATABASE=virtd
+      - DB_HOST=db  # Добавляем информацию о хосте базы данных в переменные среды
+      - DB_USER=app  # Указываем пользователя базы данных
+      - DB_PASSWORD=QwErTy1234  # Указываем пароль для подключения к базе данных
+      - DB_NAME=virtd  # Указываем название базы данных
   db:
     image: mysql:8
     networks:
